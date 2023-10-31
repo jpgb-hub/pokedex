@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
+import './Root.css'
+
 
 function Root() {
   const [pokemons, setPokemons] = useState([]);

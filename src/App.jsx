@@ -1,38 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import './App.css'
+import { useEffect, useState } from 'react'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-
-const PokemonGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-`;
-
-const PokemonCard = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform .2s;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-`;
-
-const PokemonName = styled.div`
-  margin-top: 0.5rem;
-  text-transform: capitalize;
-  font-weight: bold;
-`;
+import './App.css'; // suponiendo que tienes un archivo App.css
 
 function App() {
-  const [pokemons, setPokemons] = useState([]);
+  const [pokemons, setPokemons] = useState([])
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
@@ -43,21 +14,22 @@ function App() {
   return (
     <>
       <h1>Bienvenidos al PokeDex</h1>
-      <PokemonGrid>
+      <div className="pokemon-grid">
         {pokemons.map((pokemon, index) => (
-          <PokemonCard key={pokemon.name}>
+          <div className="pokemon-card" key={pokemon.name}>
             <LazyLoadImage
               alt={pokemon.name}
               height="96px"
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`}
               width="96px"
             />
-            <PokemonName>{pokemon.name}</PokemonName>
-          </PokemonCard>
+            <div className="pokemon-name">{pokemon.name}</div>
+          </div>
         ))}
-      </PokemonGrid>
+      </div>
     </>
-  );
+  )
 }
 
 export default App;
+

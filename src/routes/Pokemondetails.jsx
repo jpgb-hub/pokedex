@@ -13,15 +13,23 @@ const PokemonDetail = () => {
     border: '1px solid #ddd',
     borderRadius: '8px',
     padding: '1em',
-    maxWidth: '250px',
+    maxWidth: '350px',
     boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-    textAlign: 'center'
-  };
+    textAlign: 'center',
+    backgroundColor: 'white',   // Fondo blanco para la tarjeta
+    margin: 'auto',             // Centrar horizontalmente
+    position: 'absolute',       // Estos tres estilos son para centrar
+    top: '50%',                 // la tarjeta verticalmente en la pantalla
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    fontSize: '1.2em'
+    
+};
 
-  const imageStyle = {
-    width: '100px',
-    height: '100px'
-  };
+const imageStyle = {
+    width: '150px',
+    height: '150px'
+};
 
   return (
     <div style={cardStyle}>
